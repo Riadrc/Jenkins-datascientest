@@ -17,7 +17,7 @@ pipeline {
       parallel {
         stage('Build cast-service') {
           steps {
-            dir('cast-service') {
+            dir('charts/cast-service') {
               sh """
                 echo "🚧 Building cast-service"
                 docker build -t $DOCKERHUB_USER/cast-service:$IMAGE_TAG .
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Build movie-service') {
           steps {
-            dir('movie-service') {
+            dir('charts/movie-service') {
               sh """
                 echo "🚧 Building movie-service"
                 docker build -t $DOCKERHUB_USER/movie-service:$IMAGE_TAG .
